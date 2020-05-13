@@ -8,12 +8,12 @@ Created on Wed Apr 22 19:29:19 2020
 
 import math as m
 
-def evenFibonacciNumbers(i, o, max):
-    sum = 0
-    while i < max:
+def even_fibonacci_numbers(i, o, maximum):
+    summ = 0
+    while i < maximum:
         if i/2 == m.floor(i/2):
-            sum += i
+            summ += i
         i, o = o, o + i
-    return sum
+    return summ
 
-print(evenFibonacciNumbers(1, 2, 4000000))
+print(even_fibonacci_numbers(1, 2, 4000000))

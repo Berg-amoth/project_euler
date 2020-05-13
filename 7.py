@@ -9,35 +9,35 @@ Created on Tue Apr 28 16:56:31 2020
 import math as m
 
 
-def isPrime(n):
-    isPrime = True
+def is_prime(number):
+    is_that_number_prime = True
     # Si non entier : non premier
-    if n != m.floor(n):
-        isPrime = False
-    # On divise n par tous les nombres inférieurs à sa racine
-    a = m.floor(m.sqrt(n))
-    while (a > 1) & isPrime:
-        if (n/a) == (m.floor(n/a)):
-            isPrime = False
-        a -= 1
-    return isPrime
+    if number != m.floor(number):
+        is_that_number_prime = False
+    # On divise number par tous les nombres inférieurs à sa racine
+    divider = m.floor(m.sqrt(number))
+    while (divider > 1) & is_that_number_prime:
+        if (number/divider) == (m.floor(number/divider)):
+            is_that_number_prime = False
+        divider -= 1
+    return is_that_number_prime
 
 
-def nPrime(n):
-    if n == 1:
-        nPrime = 2
-    elif n == 2:
-        nPrime = 3
-    # If n > 2, nPrime can be incremented by 2
+def umpteenth_prime_number(row):
+    if row == 1:
+        tested_number = 2
+    elif row == 2:
+        tested_number = 3
+    # If row > 2, tested_number can be incremented by 2
     else:
         counter = 3
-        nPrime = 3
-        # Each time nPrime is a prime number, counter is incremented
-        while counter <= n:
-            nPrime += 2
-            if isPrime(nPrime):
-                counter += 1                
-    return nPrime
+        tested_number = 3
+        # Each time tested_number is a prime number, counter is incremented
+        while counter <= row:
+            tested_number += 2
+            if is_prime(tested_number):
+                counter += 1
+    return tested_number
 
 
-print(nPrime(10001))
+print(umpteenth_prime_number(10001))

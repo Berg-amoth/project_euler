@@ -9,37 +9,33 @@ Created on Wed Apr 22 19:36:41 2020
 import math as m
 
 
-def isPrime(n):
-    isPrime = True
+def is_prime(number):
+    is_that_number_prime = True
     # Si non entier : non premier
-    if n != m.floor(n):
-        isPrime = False
-    # On divise n par tous les nombres inférieurs à sa racine
-    a = m.floor(m.sqrt(n))
-    while (a > 1) & isPrime:
-        if (n/a) == (m.floor(n/a)):
-            isPrime = False
-        a -= 1
-    return isPrime
+    if number != m.floor(number):
+        is_that_number_prime = False
+    # On divise number par tous les nombres inférieurs à sa racine
+    divider = m.floor(m.sqrt(number))
+    while (divider > 1) & is_that_number_prime:
+        if (number/divider) == (m.floor(number/divider)):
+            is_that_number_prime = False
+        divider -= 1
+    return is_that_number_prime
 
 
-def largestPrimeFactor(n):
-    LPF = 1
-    a = m.floor(m.sqrt(n))
-    
-    if a/2 == m.floor(a/2):
-        a -= 1
-        
-    while (a >= 3) & (LPF == 1):
-        if n/a == m.floor(n/a):
-            if isPrime(a):
-                LPF = a
-        a -= 2
-    
-    if (LPF == 1) & (n/2 == m.floor(n/2)):
-        LPF = 2
-    
-    return LPF
+def find_largest_prime_factor(number):
+    largest_prime_factor = 1
+    divider = m.floor(m.sqrt(number))
+    if divider/2 == m.floor(divider/2):
+        divider -= 1
+    while (divider >= 3) & (largest_prime_factor == 1):
+        if number/divider == m.floor(number/divider):
+            if is_prime(divider):
+                largest_prime_factor = divider
+        divider -= 2
+    if (largest_prime_factor == 1) & (number/2 == m.floor(number/2)):
+        largest_prime_factor = 2
+    return largest_prime_factor
 
 
-print(largestPrimeFactor(600851475143))
+print(find_largest_prime_factor(600851475143))

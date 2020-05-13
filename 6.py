@@ -6,19 +6,17 @@ Created on Tue Apr 28 16:42:15 2020
 @author: amoth
 """
 
-def sumSquareDifference(a, b):
+def sum_quare_difference(start, end):
     # Calculate the sum of squares
-    sumSquare = 0
-    for i in range(a, b+1):
-        sumSquare += i**2
-        
+    sum_square = 0
+    for i in range(start, end+1):
+        sum_square += i**2
     # Calculate the square of the sum
-    squareSum = 0
-    for i in range(a, b+1):
-        squareSum += i
-    squareSum = squareSum**2
-    
-    return squareSum - sumSquare
+    square_sum = 0
+    for i in range(start, end+1):
+        square_sum += i
+    square_sum = square_sum**2
+    return square_sum - sum_square
 
 
-print(sumSquareDifference(1, 100))
+print(sum_quare_difference(1, 100))
